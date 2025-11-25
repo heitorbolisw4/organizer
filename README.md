@@ -1,52 +1,59 @@
-# ?? File Organizer CLI
 
-Uma ferramenta de linha de comando (CLI) desenvolvida em C# .NET para automatizar a organizaÁ„o e limpeza de diretÛrios (como a pasta Downloads), focada em produtividade e manutenÁ„o de arquivos baseada em datas.
+# üìÇ File Organizer CLI
 
-## ?? Funcionalidades
+Uma ferramenta de linha de comando (CLI) em C# (.NET 10) para organizar e limpar diret√≥rios (ex.: pasta `Downloads`). Automatiza renomea√ß√£o de arquivos antigos e envio seguro para a Lixeira do Windows, com foco em produtividade e manuten√ß√£o baseada em datas.
 
-O script analisa arquivos em um diretÛrio alvo e oferece um menu interativo com as seguintes opÁıes:
+---
 
-- **Listar Arquivos:** Exibe todos os arquivos do diretÛrio com data de criaÁ„o e nome.
-- **Renomear Arquivos Antigos:** Identifica arquivos com mais de **14 dias**, adicionando a data de criaÁ„o ao inÌcio do nome (ex: `2023-11-25_Relatorio.pdf`).
-- **Limpeza Inteligente (Lixeira):** Move arquivos com mais de **14 dias** para a Lixeira do Windows (via `Microsoft.VisualBasic`), garantindo uma camada de seguranÁa antes da exclus„o permanente.
+## üöÄ Funcionalidades
 
-## ??? Tecnologias Utilizadas
+- Listar arquivos do diret√≥rio com data de cria√ß√£o e nome.
+- Renomear arquivos com mais de 14 dias, prefixando a data (ex.: `2023-11-25_Relatorio.pdf`).
+- Limpeza inteligente: mover arquivos com mais de 14 dias para a Lixeira do Windows (via `Microsoft.VisualBasic`) para evitar exclus√µes permanentes imediatas.
 
-- **C# / .NET** (Console Application)
-- **System.IO**: ManipulaÁ„o de diretÛrios e arquivos (`FileInfo`, `DirectoryInfo`).
-- **Microsoft.VisualBasic**: IntegraÁ„o com o shell do Windows para envio seguro ‡ Lixeira.
+---
 
-## ?? Como Configurar e Rodar
+## üõ† Tecnologias
 
-### PrÈ-requisitos
-- SDK do .NET instalado (vers„o 6.0 ou superior recomendada).
+- C# / .NET (Console Application)
+- `System.IO` (`FileInfo`, `DirectoryInfo`)
+- `Microsoft.VisualBasic` (integra√ß√£o com a Lixeira do Windows)
 
-### Passo a Passo
+---
 
-1. **Clone o repositÛrio:**
+## ‚öôÔ∏è Requisitos
+
+- SDK do .NET 10 instalado.
+
+---
+
+## üöÄ Instala√ß√£o e execu√ß√£o
+
+**1. Clone o reposit√≥rio:**
    ```bash
    git clone [https://github.com/SEU-USUARIO/FileOrganizerCLI.git](https://github.com/SEU-USUARIO/FileOrganizerCLI.git)
-   cd FileOrganizerCLI
-Defina o DiretÛrio Alvo: Abra o arquivo Program.cs e localize a vari·vel filePath. Altere o caminho para a pasta que deseja organizar:
+   ```
 
-C#
+**2. Defina o diret√≥rio alvo:** 
+Abra `Program.cs` e ajuste a vari√°vel `filePath` para a pasta que deseja organizar.
 
-// Exemplo:
-string filePath = @"C:\Users\SEU_USUARIO\Downloads";
-Adicione a ReferÍncia (se necess·rio): Como o projeto usa recursos do Visual Basic para a Lixeira, certifique-se de que o .csproj contÈm a referÍncia ou execute:
+C# ‚Äî Exemplo (copiar para `Program.cs`):
+// Copiar este bloco e colar em Program.cs string 
 
-Bash
+```bash
+filePath = @"C:\Users\SEU_USUARIO\Downloads";
+```
 
-dotnet add reference Microsoft.VisualBasic
-(Nota: Em projetos .NET Core/5+, isso geralmente È nativo ou requer ajuste no csproj para UseWindowsForms ou referÍncia direta, dependendo do SDK).
+**3. (Opcional) Adicionar o pacote `Microsoft.VisualBasic` caso o build reclame da refer√™ncia:**
+   ```bash
+   dotnet add package Microsoft.VisualBasic
+   ```
+**4. Compile e execute:**
+   ```bash
+   dotnet run
+   ```
+### ‚ö†Ô∏è Aviso de Seguran√ßa
+Embora a fun√ß√£o de exclus√£o envie os arquivos para a Lixeira (permitindo recupera√ß√£o), recomenda-se sempre revisar a lista de arquivos (Op√ß√£o 1) antes de executar opera√ß√µes em lote.
 
-Execute o projeto:
-
-Bash
-
-dotnet run
-?? Aviso de SeguranÁa
-Embora a funÁ„o de exclus„o envie os arquivos para a Lixeira (permitindo recuperaÁ„o), recomenda-se sempre revisar a lista de arquivos (OpÁ„o 1) antes de executar operaÁıes em lote.
-
-?? LicenÁa
-Este projeto est· sob a licenÁa MIT. Sinta-se livre para usar e modificar.
+### üìù Licen√ßa
+Este projeto est√° sob a licen√ßa MIT. Sinta-se livre para usar e modificar.
