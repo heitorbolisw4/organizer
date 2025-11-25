@@ -1,0 +1,15 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio / VS Code configuration
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS generated files
+.DS_Store
+Thumbs.db
